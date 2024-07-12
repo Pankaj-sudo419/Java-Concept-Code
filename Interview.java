@@ -3,7 +3,7 @@ import com.encapsulation.EncapsulationExample;
 public class Interview {
     public static void main(String[] args){
         EncapsulationExample encapsulationExample = new EncapsulationExample();
-        EncapsulationExample e2 = new EncapsulationExample("Akash",24,"It");
+        EncapsulationExample e2 = new EncapsulationExample("Debayan",24,"It");
         encapsulationExample.setName("Pankaj");
         encapsulationExample.setAge(25);
         encapsulationExample.setProfession("Associate Analyst");
