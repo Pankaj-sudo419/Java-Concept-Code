@@ -1,0 +1,92 @@
+Spring Boot Architecture
+*******************************
+
+Spring Boot follows a layered architecture in which each layer communicates with the layer directly below or above (hierarchical structure) it.
+The below diagram demonstrates that every layer of a Spring Boot application is directly communicating with the layer just below or above it is due to the workflow.
+
+Presentation Layer: The presentation layer handles the HTTP requests, translates the JSON parameter to object, and authenticates the request, and transfer it to the business layer.
+In short, it consists of views.
+
+Business Layer: The business layer handles all the business logic.
+It consists of service classes and uses services provided by data access layers.
+It also performs authorization and validation.
+
+Persistence Layer: The persistence layer contains all the storage logic and translates business objects from and to database rows.
+
+Database Layer: In the database layer, CRUD (create, retrieve, update, delete) operations are performed.
+
+Spring Boot uses all the modules of Spring-like Spring MVC, Spring Data, etc.
+The architecture of Spring Boot is the same as the architecture of Spring MVC, except for one thing: there is no need for DAO and DAOImpl classes in Spring boot.
+As a summary, in a simple spring boot flow:
+
+Data access layer gets created and CRUD operations are performed.
+The client makes the HTTP requests.
+The request goes to the controller, and the controller maps that request and handles it. After that, it calls the service logic if required.
+In the service layer, all the business logic performs. It performs the logic on the data that is mapped to JPA with model classes.
+A response page is returned to the user if no error occurs.
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Important Terms of Spring Boot
+*******************************
+
+Bean
+Imagine you have a toy factory. In this factory, you make different kinds of toys like cars, dolls, and robots.
+In the world of Spring, these toys are called "beans." A bean is just a fancy word for an object that the Spring framework makes and manages for you.
+
+IoC (Inversion of Control)
+In a regular toy factory, you might have to decide which toys to make and when to make them.
+This can be a lot of work! But what if you had a super-smart robot that could automatically figure out which toys to make based on a list you give it? That's what IoC does.
+
+Inversion of Control means that instead of you controlling the creation of toys (beans),
+you let the Spring framework control it. You just tell Spring what toys you need, and it takes care of making them and giving them to you when you need them.
+
+Application Context
+Think of the Application Context as a big toy box where all your toys (beans) are stored.
+This toy box is very special because it not only stores the toys but also knows how to create them,
+how to connect them with each other, and how to give them to you when you ask.
+
+Putting It All Together
+Bean: A toy that Spring makes and manages for you.
+IoC (Inversion of Control): Instead of you making the toys yourself, you let Spring decide when and how to make the toys.
+Application Context: A special toy box where all the toys are stored and managed.
+Example
+Let's say you want to play with a toy car. Here's how it would work in Spring:
+
+Bean: You tell Spring that you need a toy car.
+IoC: Spring decides when and how to make the toy car for you.
+Application Context: When you ask for your toy car, the Application Context (toy box) finds it and gives it to you.
+-------------------------------------------------------------------------------------------------------------------
+
+Spring Boot Components
+*******************************
+
+The Spring Boot Project provides four key features
+
+1- Spring Boot Starters
+2- Automatic configuration
+3- Spring Boot CLI
+4- Spring Boot Actuator
+
+Spring Boot CLI
+
+Spring Boot also provides a command-line tool that can be used to quickly write Spring applications.
+You can run Groovy scripts with Spring Boot CLI. Groovy code has almost zero boilerplate code compared with Java.
+
+Spring Boot Actuator
+There are a lot of frameworks that provide tools for application development.
+But Spring Boot doesn’t only provide application development-specific features; it also provides post-production features.
+This allows you to monitor your Spring application during production using HTTP endpoints or with JMX.
+Other parts of Spring Boot’s building blocks simplify Spring development;
+the Actuator instead offers the ability to inspect the internals of your application at runtime.
+The Actuator provides data on auditing, metrics, and the health of your Spring Boot application using HTTP endpoints or with JMX.
+It helps you to manage your application when it’s in production.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Configuration vs AutoConfiguration
+**********************************
+Spring Boot auto-configuration automatically configures the Spring application based on the jar dependencies that we have added.
+
+@Configuration is a class-level annotation indicating that an object is a source of bean definitions.
+@Configuration classes declare beans through @Bean -annotated methods.
+Calls to @Bean methods on @Configuration classes can also be used to define inter-bean dependencies

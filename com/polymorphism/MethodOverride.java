@@ -1,22 +1,31 @@
 package com.polymorphism;
 
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 public class MethodOverride {
 
     public static void main(String[] args) {
-        Dog dog = new Dog();
-        Cat cat = new Cat();
-        OverrideExample overrideExample = new OverrideExample();
-        PolarBear polarBear = new PolarBear();
-        polarBear.animalType();
-        polarBear.animalWalkingStyle();
-        polarBear.animalSpecies();
-        polarBear.animalStrength();
-        overrideExample.sound();
-        dog.sound();
-        cat.sound();
-        cat.animalSpecies();
-        cat.animalStrength();
-        System.out.println(dog.weight(4,120));
+//        Dog dog = new Dog();
+//        Cat cat = new Cat();
+//        OverrideExample overrideExample = new OverrideExample();
+//        PolarBear polarBear = new PolarBear();
+//        polarBear.animalType();
+//        polarBear.animalWalkingStyle();
+//        polarBear.animalSpecies();
+//        polarBear.animalStrength();
+//        overrideExample.sound();
+//        dog.sound();
+//        cat.sound();
+//        cat.animalSpecies();
+//        cat.animalStrength();
+//        System.out.println(dog.weight(4,120));
+        OverrideExample overrideExample5 = new Dog();
+        overrideExample5.sound();
+
+
+
     }
 }
 
@@ -37,6 +46,7 @@ abstract class Animal{
 }
 
 class Dog  extends OverrideExample {
+
  @Override
     public  void  sound(){
      System.out.println("Dog sound is bhoo bhoo");
